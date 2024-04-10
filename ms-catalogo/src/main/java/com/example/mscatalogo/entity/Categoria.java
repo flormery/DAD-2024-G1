@@ -8,15 +8,9 @@ import lombok.Data;
 
 @Entity
 @Data
-public class Cliente {
+public class Categoria {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String dni;
     private String nombre;
-    private String apellido;
-    private String numero;
-    private String direccion;
-    private String correo;
-
 }

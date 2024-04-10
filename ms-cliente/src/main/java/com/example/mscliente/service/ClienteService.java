@@ -1,6 +1,6 @@
-package com.example.mscatalogo.service;
+package com.example.mscliente.service;
 
-import com.example.mscatalogo.entity.Cliente;
+import com.example.mscliente.entity.Cliente;
 
 import java.util.List;
 

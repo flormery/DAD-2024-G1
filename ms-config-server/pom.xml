@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>ms-config-serve</artifactId>
+	<artifactId>ms-config-server</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>ms-config-serve</name>
-	<description>ms-config-serve</description>
+	<name>ms-config-server</name>
+	<description>ms-config-server</description>
 	<properties>
 		<java.version>17</java.version>
 		<spring-cloud.version>2023.0.1</spring-cloud.version>

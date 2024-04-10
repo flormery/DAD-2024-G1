@@ -1,15 +1,15 @@
-package com.example.mscatalogo.controller;
+package com.example.mscliente.controller;
 
-import com.example.mscatalogo.entity.Cliente;
-import com.example.mscatalogo.service.ClienteService;
+import com.example.mscliente.entity.Cliente;
+import com.example.mscliente.service.ClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RequestMapping("/cliente")
 @RestController
+@RequestMapping("/cliente")
 public class ClienteController {
     @Autowired
     private ClienteService clienteService;

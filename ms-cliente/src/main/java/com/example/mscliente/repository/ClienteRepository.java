@@ -1,6 +1,6 @@
-package com.example.mscatalogo.repository;
+package com.example.mscliente.repository;
 
-import com.example.mscatalogo.entity.Cliente;
+import com.example.mscliente.entity.Cliente;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ClienteRepository extends JpaRepository<Cliente,Integer> {
