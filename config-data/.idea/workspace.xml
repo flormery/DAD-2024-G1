@@ -5,7 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="75c31993-de7b-4a6a-a2b8-f68881fe992f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/ms-pedido-service.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ms-pedido-service.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-pedido-service/src/main/java/com/example/mspedidoservice/controller/PedidoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-pedido-service/src/main/java/com/example/mspedidoservice/controller/PedidoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-pedido-service/src/main/java/com/example/mspedidoservice/feign/CatalogoFeign.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-pedido-service/src/main/java/com/example/mspedidoservice/feign/ProductoFeign.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-pedido-service/src/main/java/com/example/mspedidoservice/service/PedidoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-pedido-service/src/main/java/com/example/mspedidoservice/service/PedidoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-pedido-service/src/main/java/com/example/mspedidoservice/service/impl/PedidoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-pedido-service/src/main/java/com/example/mspedidoservice/service/impl/PedidoServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,7 +83,7 @@
       <workItem from="1712839839085" duration="2696000" />
       <workItem from="1713306156653" duration="1982000" />
       <workItem from="1713389840978" duration="2391000" />
-      <workItem from="1713444342835" duration="3376000" />
+      <workItem from="1713444342835" duration="3976000" />
     </task>
     <servers />
   </component>

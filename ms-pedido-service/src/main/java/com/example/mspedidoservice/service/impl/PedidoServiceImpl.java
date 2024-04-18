@@ -3,7 +3,7 @@ package com.example.mspedidoservice.service.impl;
 import com.example.mspedidoservice.dto.ClienteDto;
 import com.example.mspedidoservice.entity.Pedido;
 import com.example.mspedidoservice.entity.PedidoDetalle;
-import com.example.mspedidoservice.feign.CatalogoFeign;
+import com.example.mspedidoservice.feign.ProductoFeign;
 import com.example.mspedidoservice.feign.ClienteFeign;
 import com.example.mspedidoservice.repository.PedidoRepository;
 import com.example.mspedidoservice.service.PedidoService;
@@ -12,7 +12,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Service
 public class PedidoServiceImpl implements PedidoService {
@@ -22,7 +21,7 @@ public class PedidoServiceImpl implements PedidoService {
     @Autowired
     private ClienteFeign clienteFeign;
     @Autowired
-    private CatalogoFeign catalogoFeign;
+    private ProductoFeign catalogoFeign;
 
     @Override
     public List<Pedido> listar() {
@@ -35,14 +34,22 @@ public class PedidoServiceImpl implements PedidoService {
     }
 
     @Override
-    public Pedido buscarPorId(Integer id) {
+    public Optional<Pedido> buscarPorId(Integer id) {
+        Optional<Pedido> pedido =pedidoRepository.findById(id);
+        ClienteDto clienteDto = clienteFeign.buscarPorId(pedido.get().getClienteId()).getBody();
+       /* for (PedidoDetalle pedidoDetalle : pedido.get().getDetalle()) {
+            pedidoDetalle.setProductoDto(catalogoFeign.productoBuscarPorId(pedidoDetalle.getProductoId()).getBody());
+        }*/
 
-        Pedido pedido=pedidoRepository.findById(id).get();
-        pedido.setClienteDto(clienteFeign.buscarPorId(pedido.getClienteId()).getBody());
-      return pedido;
+        List<PedidoDetalle> pedidoDetalles = pedido.get().getDetalle().stream().map(pedidoDetalle -> {
+            pedidoDetalle.setProductoDto(catalogoFeign.productoBuscarPorId(pedidoDetalle.getProductoId()).getBody());
+            return pedidoDetalle;
+        }).toList();
+        pedido.get().setClienteDto(clienteDto);
+        pedido.get().setDetalle(pedidoDetalles);
+
+        return pedido;
     }
-
-
 
     @Override
     public Pedido editar(Pedido pedido) {

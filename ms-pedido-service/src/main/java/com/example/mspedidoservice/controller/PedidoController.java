@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/pedido")
@@ -22,7 +23,7 @@ public class PedidoController {
         return ResponseEntity.ok(pedidoService.guardar(pedido));
     }
     @GetMapping("/{id}")
-    public  ResponseEntity<Pedido> busacarPorId(@PathVariable(required = true) Integer id){
+    public  ResponseEntity<Optional<Pedido>> busacarPorId(@PathVariable(required = true) Integer id){
         return ResponseEntity.ok(pedidoService.buscarPorId(id));
     }
     @PutMapping("/{id}")
