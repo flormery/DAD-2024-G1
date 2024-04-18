@@ -21,5 +21,5 @@ public class Pedido {
     @JoinColumn(name = "venta_id")
     private List<PedidoDetalle> detalle;
     @Transient
-    private ClienteDto clienteDto;
+    ClienteDto clienteDto;
 }

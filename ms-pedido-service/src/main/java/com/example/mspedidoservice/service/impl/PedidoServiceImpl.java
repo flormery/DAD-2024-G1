@@ -36,21 +36,10 @@ public class PedidoServiceImpl implements PedidoService {
 
     @Override
     public Pedido buscarPorId(Integer id) {
-        Optional<Pedido> pedidoOptional = pedidoRepository.findById(id);
-        if (pedidoOptional.isPresent()) {
-            Pedido pedido = pedidoOptional.get();
-            ClienteDto clienteDto = clienteFeign.buscarPorId(pedido.getClienteId()).getBody();
-            List<PedidoDetalle> pedidoDetalles = pedido.getDetalle().stream().map(pedidoDetalle -> {
-                pedidoDetalle.setProductoDto(catalogoFeign.productoBuscarPorId(pedidoDetalle.getProductoId()).getBody());
-                return pedidoDetalle;
-            }).collect(Collectors.toList());
-            pedido.setClienteDto(clienteDto);
-            pedido.setDetalle(pedidoDetalles);
-            return pedido;
-        } else {
-            // Manejar el caso en que no se encuentra el pedido
-            return null; // O lanzar una excepción, dependiendo de tus requisitos
-        }
+
+        Pedido pedido=pedidoRepository.findById(id).get();
+        pedido.setClienteDto(clienteFeign.buscarPorId(pedido.getClienteId()).getBody());
+      return pedido;
     }
 
 
