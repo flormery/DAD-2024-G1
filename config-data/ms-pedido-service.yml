@@ -1,6 +1,22 @@
 server:
   port: 8082
 
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    enabled: true
+    path: /doc/swagger-ui.html
+spring:
+  jpa:
+    hibernate.ddl-auto: update
+    generate-ddl: true
+    show-sql: true
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/ms_cliente
+    username: root
+    password:
 
 eureka:
   client:
@@ -10,22 +26,3 @@ eureka:
     hostname: localhost
 
 
-spring:
-  cloud:
-    gateway:
-      discovery:
-        locator:
-          enable: true
-      routes:
-        - id: ms-catalogo-service
-          uri: lb://ms-catalogo-service
-          predicates:
-            - Path=/categoria/**
-        - id: ms-cliente-service
-          uri: lb://ms-cliente-service
-          predicates:
-            - Path=/cliente/**
-        - id: ms-pedido-service
-          uri: lb://ms-pedido-service
-          predicates:
-            - Path=/pedido/**
